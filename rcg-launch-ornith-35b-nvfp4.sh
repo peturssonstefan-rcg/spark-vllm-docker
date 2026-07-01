@@ -1,6 +1,7 @@
 ./launch-cluster.sh --solo \
   -t vllm-node \
   --apply-mod mods/fix-qwen3.5-autoround \
+  --apply-mod mods/fix-ornith-dflash-kv \
   exec vllm serve AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-NVFP4 \
   --host 0.0.0.0 \
   --port 8089 \
@@ -19,7 +20,6 @@
   --attention-backend flash_attn \
   --enable-chunked-prefill \
   --enable-prefix-caching \
+  --speculative-config '{"method":"dflash","model":"z-lab/Qwen3.6-35B-A3B-DFlash","num_speculative_tokens":6}' \
   --served-model-name AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-NVFP4
-
-#  --speculative-config '{"method":"dflash","model":"z-lab/Qwen3.6-35B-A3B-DFlash","num_speculative_tokens":6}' \
 
