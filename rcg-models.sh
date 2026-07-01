@@ -54,7 +54,18 @@ done
 read -rp "Confirm? [y/N] " yn
 [[ $yn =~ ^[yY]$ ]] || { echo "Aborted."; exit 0; }
 
+# Container may have written files as root — detect and escalate if needed
+RM=(rm -rf --)
 for p in "${to_del[@]}"; do
-    rm -rf -- "$p"
+    if [ ! -O "$p" ] || find "$p" ! -user "$USER" -print -quit 2>/dev/null | grep -q .; then
+        echo "Note: some files not owned by $USER (likely written by root inside container)."
+        echo "Will use 'sudo rm -rf' for the deletes."
+        RM=(sudo rm -rf --)
+        break
+    fi
+done
+
+for p in "${to_del[@]}"; do
+    "${RM[@]}" "$p"
     echo "Deleted: $(basename "$p" | sed 's/^models--//; s/--/\//')"
 done
