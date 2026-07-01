@@ -4,7 +4,7 @@
 # defaults; otherwise it runs a sweep at 512/128 token sizes.
 set -euo pipefail
 
-MODEL="${MODEL:-AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Text-NVFP4-MTP}"
+MODEL="${MODEL:-AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-NVFP4}"
 TARGET="${TARGET:-http://localhost:8089}"
 PROFILE="${PROFILE:-sweep}"        # sweep | constant,rate=N | poisson,rate=N | throughput
 DURATION="${DURATION:-120}"        # seconds

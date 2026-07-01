@@ -3,7 +3,7 @@
 # Simple wrapper for quick throughput A/B (see rcg-bench-guidellm.sh for SLO tests).
 set -euo pipefail
 
-MODEL="${MODEL:-AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Text-NVFP4-MTP}"
+MODEL="${MODEL:-AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-NVFP4}"
 BASE_URL="${BASE_URL:-http://localhost:8089/v1}"
 PP="${PP:-2048}"
 TG="${TG:-128}"
