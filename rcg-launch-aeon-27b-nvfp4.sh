@@ -12,5 +12,7 @@
   --kv-cache-dtype fp8 \
   --gpu-memory-utilization 0.9 \
   --reasoning-parser qwen3 \
-  --speculative-config '{"method":"qwen3_5_mtp","num_speculative_tokens":3}' \
+  --speculative-config '{"method":"qwen3_5_mtp","num_speculative_tokens":4}' \
+  --enable-auto-tool-choice \
+  --tool-call-parser qwen3_coder \
   --served-model-name AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-Text-NVFP4-MTP
