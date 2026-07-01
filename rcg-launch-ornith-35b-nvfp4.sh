@@ -3,7 +3,7 @@
   --apply-mod mods/fix-qwen3.5-autoround \
   exec vllm serve AEON-7/Ornith-1.0-35B-AEON-Ultimate-Uncensored-NVFP4 \
   --host 0.0.0.0 \
-  --port 8090 \
+  --port 8089 \
   --trust-remote-code \
   --quantization compressed-tensors \
   --max-model-len 262144 \
